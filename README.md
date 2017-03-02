@@ -1,7 +1,6 @@
-                                                # coderrust
+                                                # Algorithms
                               algorithm challenges in ruby, javascript and python
 
-this repository contains algorithm solutions in Ruby, Javascript, and Python
+This repository contains algorithm solutions in Ruby, Javascript, and Python
 
-most of the algorithms questions are derived from the Coderrust challenges
-
+Sources of Algorithm Challenges include Coderust 2.0, Grokking Algorithms by Aditya Y. Bhargava
