@@ -15,22 +15,22 @@ array = [1,3,5,8,11,13,15,26,67,77,87,89,101]
     # return the index of middle
 
 
-def binary_search(array, search, low = 0, high = len(array) - 1):
+def binary_search(array_1, search, low=0, high=None):
+    high = high or len(array_1) - 1
     middle = (low + high) / 2
     if low > high:
-        print 'not found'
+        print('not found')
     elif array[middle] == search:
-        print middle
+        print(middle)
     elif array[middle] > search:
-        binary_search(array, search, low = low, high = middle - 1)
+        binary_search(array, search, low=low, high=middle - 1)
     else:
-        binary_search(array, search, low = middle + 1, high = high)
+        binary_search(array, search, low=middle + 1, high=high)
 
 binary_search(array, 3)
-
 
 # def default_check(default = 10, def_2 = 22):
 #     print default
 #     print def_2
-    
+
 # default_check(def_2 = 27)

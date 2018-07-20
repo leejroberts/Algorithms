@@ -1,4 +1,3 @@
-require 'pry'
 
 array = [55, 10, 4, 7, 88, 97, 0, 55, 33, 2235, 1, 2, 4, 6]
 
@@ -49,6 +48,3 @@ def quick_sort(array)
         quick_sort(small_array) + [pivot] + quick_sort(big_array)
     end
 end
-    
-array = quick_sort(array)
-p array

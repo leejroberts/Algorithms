@@ -1,6 +1,4 @@
-# Below partition is Hoare's algorithm. found this on github
-
-# this one works, unlike the one from coderust...
+# Below partition is Hoare's algorithm.
 
 def quick_sort( list, first = 0, last = (list.length - 1) )
   return list if first >= last
