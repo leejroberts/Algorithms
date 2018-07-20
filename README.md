@@ -1,6 +1,16 @@
-                                                # Algorithms
-                              algorithm challenges in ruby, javascript and python
+                                                  Algorithms
+                              algorithms/kata challenges in ruby, javascript and python
 
-This repository contains algorithm solutions in Ruby, Javascript, and Python
+### algorithm study materials:
+- __Grokking Algorithms__, Aditya Y. Bhargava
+- __A Common-Sense Guide to Data Structures and Algorithms__, Jay Wengrow
+- __Algorithms, Fourth Edition__, Robert Sedgewick, Kevin Wayne
 
-Sources of Algorithm Challenges include Coderust 2.0, Grokking Algorithms by Aditya Y. Bhargava
+### kata sources:
+- Coderust 2.0,
+- Codewars,
+
+#### testing systems:
+- python: Pytest
+- ruby: Rspec
+- node: Mocha+Chai
