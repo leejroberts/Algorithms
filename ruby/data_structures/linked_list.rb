@@ -48,12 +48,16 @@ class LinkedList
     current_node
   end
 
-  def update(value, index)
+  def [](index)
     update_node = return_node(index)
-    return false unless update_node
+    return unless update_node
+    update_node.value
+  end
 
+  def []=(index, value)
+    update_node = return_node(index)
+    return unless update_node
     update_node.value = value
-    true
   end
 
   def insert(value, index)

@@ -40,4 +40,22 @@ RSpec.describe 'LinkedList' do
     expect(linked_list.delete(100)).to be(false)
     expect(linked_list.node_count).to eq(18)
   end
+
+  it 'can return values using brackets' do
+    linked_list = LinkedList.new()
+    (1..20).each do |num|
+      linked_list.push(num)
+    end
+    expect(linked_list[0]).to eq(1)
+    expect(linked_list[19]).to eq(20)
+  end
+
+  it "can set values using brackets" do
+    linked_list = LinkedList.new()
+    (1..20).each do |num|
+      linked_list.push(num)
+    end
+    linked_list[0] = 2000
+    expect(linked_list[0]).to eq(2000)
+  end
 end
