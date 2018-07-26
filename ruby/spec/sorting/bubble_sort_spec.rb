@@ -3,7 +3,6 @@ require_relative "../../sorting/bubble_sort"
 
 RSpec.describe "bubble_sort" do
 
-
   it 'properly sorts a shuffled array of numbers' do
     shuffled_arr = (1..20).to_a.shuffle!() # generates a randomized array of numbers 1 to 20
     bubble_sorted_arr = bubble_sort(shuffled_arr)

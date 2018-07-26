@@ -1,110 +1,98 @@
 
 
+# frozen_string_literal: true
+
 class Node
   attr_accessor :value, :next_node
-  def initialize(value=nil, next_node=nil)
+  def initialize(value = nil, next_node = nil)
     @value = value
     @next_node = next_node
   end
 end
 
-def LinkedList
+class LinkedList
   attr_accessor :head, :node_count
-  def initialize(starting_value)
+  def initialize(starting_value = nil)
     @head = Node.new(starting_value)
     @node_count = 1
   end
 
-
-  def search(value, current_node=self.head)
+  def search(value, current_node = head)
     if !current_node || (current_node && !current_node.value)
       false
     elsif current_node.value == value
       true
     else
-      self.search(value, current_node.next_node)
+      search(value, current_node.next_node)
     end
   end
 
   def push(value)
-    if !self.head.value # if head is valueless, thus the only node
-      self.head.value = value
+    if !head.value # if head is valueless, thus the only node
+      head.value = value
     else
-      previous_tail_node = self.return_node(self.node_count-1)
+      previous_tail_node = return_node(node_count - 1)
       new_tail_node = Node.new(value)
       previous_tail_node.next_node = new_tail_node
-      self.node_count += 1
+      @node_count += 1
     end
   end
 
   def return_node(index)
-    if index >= self.node_count || index < 0
-      nil
-    else
-      current_node = self.head
-      counter = 0
-      while counter < index do
-        current_node = current_node.next_node
-        counter += 1
-      end
-      current_node
+    current_node = head
+    counter = 0
+    while counter < index
+      current_node = current_node.next_node
+      counter += 1
     end
+    current_node
   end
 
   def update(value, index)
-    update_node = self.return_node(index)
-    if update_node
-      update_node.value = value
-      true
-    else
-      nil
-    end
+    update_node = return_node(index)
+    return false unless update_node
+
+    update_node.value = value
+    true
   end
 
   def insert(value, index)
-    if index == 0 && !self.head.value # if there is only one node and the value is empty
-      self.head.value = value
-      self.node_count += 1
-      true
-    elsif index >= node_count || index < 0 # out of index range
-      false
+    return false if index.negative? || index >= node_count
+
+    if index.zero? && !head.value
+      head.value = value
     else
-      node_before_index = self.return_node(index-1)
+      node_before_index = return_node(index - 1)
       node_at_index = node_before.next_node
-      if node_before_index && node_at_index
-        insert_node = Node.new(value, next_node=current_node)
-        node_before_index.next_node = insert_node
-        insert_node.next_node = node_at_index
-        self.node_count += 1
-        true
-      else
-        false
-      end
+      insert_node = Node.new(value, current_node)
+      node_before_index.next_node = insert_node
+      insert_node.next_node = node_at_index
+    end
+    @node_count += 1
+    true
+  end
+
+  def delete_head
+    if @head.next_node
+      @head = @head.next_node
+      @node_count -= 1
+    else
+      @head.value = nil
+    end
+    true
   end
 
   def delete(index)
-    if index == 0
-      current_head = self.head
-      new_head = current_head.next_node
-      if new_head
-        self.head = new_head
-        current_head = nil
-        node_count -= 1
-        true
-      else
-        self.head.value = nil
-        true
-      end
-    elsif index < 0 || index >= self.node_count
-      false
-    else
-      node_before_index = self.return_node(index-1)
-      node_at_index = node_before_index.next_node
-      node_before_index.next_node = node_an_index.next_node
-      node_at_index = nil
-      self.node_count -= 1
-      true
-    end
-  end
+    return false if index.negative? || index >= @node_count
 
+    if index.zero?
+      delete_head
+    else
+      node_before_index = return_node(index - 1)
+      node_at_index = node_before_index.next_node
+      node_before_index.next_node = node_at_index.next_node
+      @node_count -= 1
+    end
+    true
+  end
 end
