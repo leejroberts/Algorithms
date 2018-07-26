@@ -102,12 +102,3 @@ class BinaryTree:
         elif starting_node.right_b:
             update_node = starting_node.right_b
             return remove_rec(starting_node, update_node)
-
-    def print_tree(self):
-        current_node = self.base
-        if current_node:
-            print(current_node.value)
-            return self.print_tree(current_node.right_b)
-            return self.print_tree(current_node.left_b)
-        else:
-            return

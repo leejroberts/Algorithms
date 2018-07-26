@@ -21,7 +21,7 @@ class LinkedList:
 
 
     def return_node_at_index(self, index):
-        if index >= self.node_count:
+        if index < 0 or index >= self.node_count:
             return "index not contained in linked list"
         else:
             current_node = self.head
