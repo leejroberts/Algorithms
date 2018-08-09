@@ -11,6 +11,6 @@
 - Codewars,
 
 #### testing systems:
-- python: Pytest
-- ruby: Rspec
-- node: Mocha+Chai
+- Ruby: RSpec
+- Node: Mocha+Chai
+- Python: Pytest
